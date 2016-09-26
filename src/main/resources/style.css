@@ -5,8 +5,11 @@
 
 .buttonnewgame{
     -fx-border-color: brown;
-    -fx-background-image: url('pics/wood1.jpg');
-    -fx-background-repeat: no-repeat;
+    -fx-background-image: url("pics/button.png");
+    -fx-background-repeat: space;
+    -fx-background-position: center center;
+    -fx-background-size: 340 190;
+    -fx-effect: dropshadow(three-pass-box, black, 5, 0.5, 0, 0);
 }
 .pane{
     -fx-background-image: url("pics/card0.png");
@@ -17,10 +20,10 @@
 }
 
 .minired{
-    -fx-background-image: url('pics/Red.png');
+    -fx-background-image: url("pics/Red.png");
 }
 .miniblue{
-    -fx-background-image: url('pics/Blue.png');
+    -fx-background-image: url("pics/Blue.png");
 }
 
 

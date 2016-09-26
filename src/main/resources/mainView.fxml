@@ -424,7 +424,7 @@
             </font>
         </Text>
         <Pane layoutY="900.0" prefHeight="100.0" prefWidth="150.0" styleClass="miniblue" />
-        <Button fx:id="newGameButton" alignment="CENTER" contentDisplay="CENTER" layoutY="445.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#startNewGame" prefHeight="90.0" prefWidth="150.0" rotate="270.0" style="-: ;" styleClass="buttonnewgame" text="СНАЧАЛА!" textAlignment="CENTER" textFill="BROWN">
+        <Button fx:id="newGameButton" alignment="CENTER" contentDisplay="CENTER" layoutY="445.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#startNewGame" prefHeight="90.0" prefWidth="150.0" rotate="270.0" styleClass="buttonnewgame" text="СНАЧАЛА!" textAlignment="CENTER" textFill="#511f1f">
             <font>
                 <Font name="Tahoma Bold" size="22.0" />
             </font>
