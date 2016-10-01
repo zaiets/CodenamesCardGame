@@ -13,7 +13,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent parent = FXMLLoader.load(getClass().getResource("/mainView.fxml"));
-        Scene scene = new Scene(parent, 1920, 980);
+        Scene scene = new Scene(parent, 1850, 1000);
         stage.setTitle(TITLE);
         stage.setScene(scene);
         stage.setResizable(true);

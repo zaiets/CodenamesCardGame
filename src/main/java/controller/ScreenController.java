@@ -158,6 +158,8 @@ public class ScreenController {
             if (word.length() > 10) {
                 text1.setFont(new Font(text1.getFont().getName(), text1.getFont().getSize()*0.75));
                 text2.setFont(new Font(text2.getFont().getName(), text2.getFont().getSize()*0.75));
+            } else {
+
             }
             pane.getChildren().forEach(o -> o.setVisible(true));
         }

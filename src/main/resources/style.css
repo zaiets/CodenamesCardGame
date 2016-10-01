@@ -1,35 +1,44 @@
 .mainscene {
-    -fx-background-image: url('pics/wood2.jpg');
+    -fx-background-image: url('pics/wood1.jpg');
     -fx-background-repeat: space;
+    -fx-alignment: top-left;
 }
 
 .buttonnewgame{
-    -fx-border-color: brown;
+    -fx-border-style: none;
     -fx-background-image: url("pics/button.png");
     -fx-background-repeat: space;
     -fx-background-position: center center;
-    -fx-background-size: 340 190;
+    -fx-background-size: 340 150;
     -fx-effect: dropshadow(three-pass-box, black, 5, 0.5, 0, 0);
 }
 .pane{
     -fx-background-image: url("pics/card0.png");
-    -fx-background-repeat: space;
-    -fx-background-size: 340 190;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: stretch;
     -fx-background-position: center center;
     -fx-effect: dropshadow(three-pass-box, black, 10, 0.5, 0, 0);
 }
 
+.gridpane{
+    -fx-alignment: inherit;
+}
+
+.counter{
+    -fx-effect: dropshadow(three-pass-box, black, 1, 0.5, 0, 0);
+}
+.wordbox{
+    -fx-effect: dropshadow(three-pass-box, black, 10, 0.5, 0, 0);
+}
 .minired{
     -fx-background-image: url("pics/Red.png");
+    -fx-effect: dropshadow(three-pass-box, black, 10, 0.5, 0, 0);
 }
 .miniblue{
     -fx-background-image: url("pics/Blue.png");
+    -fx-effect: dropshadow(three-pass-box, black, 10, 0.5, 0, 0);
 }
 
-
-.wordbox{
-    visibility: inherit;
-}
 
 .maintext{
     visibility: inherit;
@@ -37,6 +46,7 @@
 }
 
 .secondarytext{
+    -fx-effect: dropshadow(three-pass-box, lightyellow, 10, 0.5, 0, 0);
     visibility: inherit;
 
 }
