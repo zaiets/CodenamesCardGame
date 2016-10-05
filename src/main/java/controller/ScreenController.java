@@ -250,6 +250,7 @@ public class ScreenController {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Укажите файл словаря");
         fileChooser.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+        fileChooser.setInitialDirectory(new File ("/"));
         return fileChooser.showOpenDialog(stage);
     }
 
