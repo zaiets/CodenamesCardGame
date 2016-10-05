@@ -2,8 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceDialog;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -14,10 +13,15 @@ import service.WordGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 public class ScreenController {
-    private static String currentChoosenColor;
+    private static final Background ANTIQUEWHITE_BACKGROUND = new Background(new BackgroundFill(Color.ANTIQUEWHITE, null, null));
+    private static final int CARD_VISUALS_COUNT = 2;
+    private static final String[] CARD_VISUALS_COLORS = {"yellow", "blue", "red"};
+    private static final Font TAHOMA_FONT = new Font("Tahoma", 20);
+    private static String currentChosenColor;
     private int redNumCount;
     private int blueNumCount;
 
@@ -45,39 +49,39 @@ public class ScreenController {
     @FXML
     private Pane pane14, pane15, pane16, pane17, pane18, pane19, pane20, pane21, pane22, pane23, pane24;
 
-    private void setState(Pane current) {
+    private void setState(Pane currentPane) {
         chooseTeamDialog();
-        if (currentChoosenColor == null) return;
+        if (currentChosenColor == null) return;
         Random rand = new Random();
         String url;
-        switch (currentChoosenColor) {
+        switch (currentChosenColor) {
             case "red":
-                url = "/pics/Red".concat(String.valueOf(rand.nextInt(2)+1)).concat(".png");
+                url = "/pics/Red".concat(String.valueOf(rand.nextInt(CARD_VISUALS_COUNT) + 1)).concat(".png");
                 redNumCount += 1;
                 setRedNum(redNumCount);
                 break;
             case "blue":
-                url = "/pics/Blue".concat(String.valueOf(rand.nextInt(2)+1)).concat(".png");
+                url = "/pics/Blue".concat(String.valueOf(rand.nextInt(CARD_VISUALS_COUNT) + 1)).concat(".png");
                 blueNumCount += 1;
                 setBlueNum(blueNumCount);
                 break;
             default:
-                url = "/pics/Yellow".concat(String.valueOf(rand.nextInt(2)+1)).concat(".png");
+                url = "/pics/Yellow".concat(String.valueOf(rand.nextInt(CARD_VISUALS_COUNT) + 1)).concat(".png");
                 break;
         }
-        current.setDisable(true);
-        BackgroundSize backgroundSize = new BackgroundSize (1, 1, true, true, false, false);
-        BackgroundImage backgroundImage = new BackgroundImage( new Image( getClass().getResource(url).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
+        getSetPanesActResetStateOnClick(currentPane);
+        BackgroundSize backgroundSize = new BackgroundSize(1, 1, true, true, false, false);
+        BackgroundImage backgroundImage = new BackgroundImage(new Image(getClass().getResource(url).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
         Background background = new Background(backgroundImage);
-        current.setBackground(background);
-        current.getChildren().forEach(o -> o.setVisible(false));
+        currentPane.setBackground(background);
+        currentPane.getChildren().forEach(o -> o.setVisible(false));
     }
 
     private void chooseTeamDialog() {
-        currentChoosenColor = null;
-        ChoiceDialog<String> dialog = new ChoiceDialog<>("yellow", "blue", "red");
+        currentChosenColor = null;
+        Dialog dialog = new ChoiceDialog<>();
         GridPane grid = new GridPane();
-        grid.setBackground(new Background(new BackgroundFill(Color.ANTIQUEWHITE, null, null)));
+        grid.setBackground(ANTIQUEWHITE_BACKGROUND);
         List<Button> buttons = generateButtons(dialog);
         for (int i = 0; i < buttons.size(); i++) {
             grid.add(buttons.get(i), i, 0);
@@ -88,31 +92,51 @@ public class ScreenController {
         dialog.showAndWait();
     }
 
-    private List<Button> generateButtons(ChoiceDialog<String> dialog) {
+    private List<Button> generateButtons(Dialog dialog) {
         List<Button> buttonList = new ArrayList<>();
         Color color;
         Button current;
-        List<String> dialogData = dialog.getItems();
-        dialogData.add(dialog.getSelectedItem());
-        for (String colorName : dialogData) {
+        Tooltip tooltip;
+        for (String colorName : CARD_VISUALS_COLORS) {
             color = Color.valueOf(colorName).desaturate();
             current = new Button();
             current.setBackground(new Background(new BackgroundFill(color, new CornerRadii(5), null)));
             current.setMinSize(100, 100);
             current.setMaxSize(100, 100);
-            buttonList.add(current);
-        }
-        for (int i = 0; i < buttonList.size(); i++) {
-            current = buttonList.get(i);
-            final int j = i;
-            current.setOnAction(o -> {
-                        final Button b = (Button) o.getSource();
-                        currentChoosenColor = dialogData.get(j);
+            tooltip = new Tooltip();
+            tooltip.setFont(TAHOMA_FONT);
+            tooltip.setText(colorName);
+            current.setTooltip(tooltip);
+            current.setOnMouseClicked(event -> {
+                        currentChosenColor = colorName;
                         dialog.close();
                     }
             );
+            buttonList.add(current);
         }
+        Button cancelButton = new Button("Отмена");
+        cancelButton.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, new CornerRadii(5), null)));
+        cancelButton.setMinSize(130, 100);
+        cancelButton.setMaxSize(130, 100);
+        cancelButton.setOnMouseClicked(event -> dialog.close());
+        buttonList.add(cancelButton);
         return buttonList;
+    }
+
+
+    private void getSetPanesActResetStateOnClick(Pane currentPane) {
+        currentPane.setOnMouseClicked(event -> {
+            Alert dialog = new Alert(Alert.AlertType.CONFIRMATION);
+            dialog.setHeaderText("Вернуть значение?");
+            dialog.getDialogPane().setBackground(ANTIQUEWHITE_BACKGROUND);
+            Optional<ButtonType> result = dialog.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                currentPane.setBackground(basicCardBackground);
+                currentPane.getChildren().forEach(o -> o.setVisible(true));
+                currentPane.setOnMouseClicked(eventNext -> setState(currentPane));
+                dialog.close();
+            }
+        });
     }
 
     @FXML
@@ -141,16 +165,21 @@ public class ScreenController {
     private void setPanesNewWords(Scene scene) {
         for (int i = 0; i < 25; i++) {
             Text text1 = (Text) (scene.lookup("#word".concat(String.valueOf(i)).concat("_1")));
-            text1.getParent().setDisable(false);
-            Pane pane = (Pane) (text1.getParent());
+            Pane pane = (Pane) (text1.getParent().getParent());
             pane.setBackground(basicCardBackground);
             String word = words.get(i);
             text1.setText(word);
             Text text2 = (Text) (scene.lookup("#word".concat(String.valueOf(i)).concat("_2")));
             text2.setText(word);
             if (word.length() > 10) {
-                text1.setFont(new Font(text1.getFont().getName(), text1.getFont().getSize()*0.75));
-                text2.setFont(new Font(text2.getFont().getName(), text2.getFont().getSize()*0.75));
+                text1.setFont(new Font(text1.getFont().getName(), text1.getFont().getSize() * 0.7));
+                text2.setFont(new Font(text2.getFont().getName(), text2.getFont().getSize() * 0.7));
+            } else if (word.length() > 8) {
+                text1.setFont(new Font(text1.getFont().getName(), text1.getFont().getSize() * 0.8));
+                text2.setFont(new Font(text2.getFont().getName(), text2.getFont().getSize() * 0.8));
+            } else if (word.length() > 6) {
+                text1.setFont(new Font(text1.getFont().getName(), text1.getFont().getSize() * 0.9));
+                text2.setFont(new Font(text2.getFont().getName(), text2.getFont().getSize() * 0.9));
             } else {
                 text1.setFont(new Font(text1.getFont().getName(), 30));
                 text2.setFont(new Font(text2.getFont().getName(), 28));

@@ -17,7 +17,8 @@ public class MainApp extends Application {
         stage.setTitle(TITLE);
         stage.setScene(scene);
         stage.setResizable(true);
-        stage.setMaximized(false);
+        stage.setMaximized(true);
+        stage.setFullScreen(false);
         ScreenController controller = new ScreenController();
         controller.setStage(stage);
         controller.show();
