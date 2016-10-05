@@ -18,6 +18,8 @@ public class MainApp extends Application {
         stage.setScene(scene);
         stage.setResizable(true);
         stage.setMaximized(true);
+        stage.setMinWidth(1000);
+        stage.setMinHeight(720);
         stage.setFullScreen(false);
         ScreenController controller = new ScreenController();
         controller.setStage(stage);
