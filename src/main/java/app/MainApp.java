@@ -13,11 +13,11 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent parent = FXMLLoader.load(getClass().getResource("/mainView.fxml"));
-        Scene scene = new Scene(parent, 1850, 1000);
+        Scene scene = new Scene(parent);
         stage.setTitle(TITLE);
         stage.setScene(scene);
         stage.setResizable(true);
-        stage.setMaximized(true);
+        stage.setMaximized(false);
         ScreenController controller = new ScreenController();
         controller.setStage(stage);
         controller.show();

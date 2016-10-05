@@ -14,10 +14,10 @@ import service.WordGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 
 public class ScreenController {
+    private static String currentChoosenColor;
     private int redNumCount;
     private int blueNumCount;
 
@@ -30,7 +30,7 @@ public class ScreenController {
     private Background basicCardBackground;
 
     {
-        BackgroundSize backgroundSize = new BackgroundSize(340, 190, false, false, false, false);
+        BackgroundSize backgroundSize = new BackgroundSize(1, 1, true, true, false, false);
         BackgroundImage backgroundImage = new BackgroundImage(new Image(getClass().getResource("/pics/card0.png").toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
         basicCardBackground = new Background(backgroundImage);
     }
@@ -46,11 +46,11 @@ public class ScreenController {
     private Pane pane14, pane15, pane16, pane17, pane18, pane19, pane20, pane21, pane22, pane23, pane24;
 
     private void setState(Pane current) {
-        String choosenColor = chooseTeamView();
+        chooseTeamDialog();
+        if (currentChoosenColor == null) return;
         Random rand = new Random();
         String url;
-        if (choosenColor == null) return;
-        switch (choosenColor) {
+        switch (currentChoosenColor) {
             case "red":
                 url = "/pics/Red".concat(String.valueOf(rand.nextInt(2)+1)).concat(".png");
                 redNumCount += 1;
@@ -66,15 +66,15 @@ public class ScreenController {
                 break;
         }
         current.setDisable(true);
-        BackgroundSize backgroundSize = new BackgroundSize(310, 190, false, false, false, false);
+        BackgroundSize backgroundSize = new BackgroundSize (1, 1, true, true, false, false);
         BackgroundImage backgroundImage = new BackgroundImage( new Image( getClass().getResource(url).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
         Background background = new Background(backgroundImage);
         current.setBackground(background);
         current.getChildren().forEach(o -> o.setVisible(false));
     }
 
-    private String chooseTeamView() {
-        String choosenColor = null;
+    private void chooseTeamDialog() {
+        currentChoosenColor = null;
         ChoiceDialog<String> dialog = new ChoiceDialog<>("yellow", "blue", "red");
         GridPane grid = new GridPane();
         grid.setBackground(new Background(new BackgroundFill(Color.ANTIQUEWHITE, null, null)));
@@ -83,24 +83,19 @@ public class ScreenController {
             grid.add(buttons.get(i), i, 0);
         }
         dialog.getDialogPane().setContent(grid);
-        dialog.setTitle("Выберите команду агента:");
-        Optional<String> optional = dialog.showAndWait();
-        if (optional.isPresent()) {
-            choosenColor = optional.get();
-        }
-        return choosenColor;
+        dialog.setTitle("Выбор команды агента");
+        dialog.setHeaderText("Нажмите на нужный цвет:");
+        dialog.showAndWait();
     }
 
     private List<Button> generateButtons(ChoiceDialog<String> dialog) {
         List<Button> buttonList = new ArrayList<>();
-        List<Color> colorList = new ArrayList<>();
         Color color;
         Button current;
         List<String> dialogData = dialog.getItems();
         dialogData.add(dialog.getSelectedItem());
         for (String colorName : dialogData) {
             color = Color.valueOf(colorName).desaturate();
-            colorList.add(color);
             current = new Button();
             current.setBackground(new Background(new BackgroundFill(color, new CornerRadii(5), null)));
             current.setMinSize(100, 100);
@@ -110,12 +105,10 @@ public class ScreenController {
         for (int i = 0; i < buttonList.size(); i++) {
             current = buttonList.get(i);
             final int j = i;
-            final Color color1 = colorList.get(i);
             current.setOnAction(o -> {
                         final Button b = (Button) o.getSource();
-                        b.setBackground(new Background(new BackgroundFill(color1.saturate().brighter(), new CornerRadii(5), null)));
-                        buttonList.stream().filter(button -> !button.equals(b)).forEach(button -> button.setDisable(true));
-                        dialog.setSelectedItem(dialogData.get(j));
+                        currentChoosenColor = dialogData.get(j);
+                        dialog.close();
                     }
             );
         }
@@ -159,7 +152,8 @@ public class ScreenController {
                 text1.setFont(new Font(text1.getFont().getName(), text1.getFont().getSize()*0.75));
                 text2.setFont(new Font(text2.getFont().getName(), text2.getFont().getSize()*0.75));
             } else {
-
+                text1.setFont(new Font(text1.getFont().getName(), 30));
+                text2.setFont(new Font(text2.getFont().getName(), 28));
             }
             pane.getChildren().forEach(o -> o.setVisible(true));
         }
@@ -168,6 +162,7 @@ public class ScreenController {
 
     public void setStage(Stage stage) {
         this.stage = stage;
+
     }
 
     public void show() {

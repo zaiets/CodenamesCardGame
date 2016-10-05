@@ -10,44 +10,71 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="800.0" styleClass="mainscene" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ScreenController">
+<AnchorPane minHeight="700.0" minWidth="1366.0" styleClass="mainscene" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ScreenController">
     <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="90.0" layoutX="30.0" layoutY="801.0" stroke="#a12a2a" strokeType="INSIDE" strokeWidth="0.0" styleClass="wordbox" width="90.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="90.0" layoutX="30.0" layoutY="110.0" stroke="#a12a2a" strokeType="INSIDE" strokeWidth="0.0" styleClass="wordbox" width="90.0" />
-        <GridPane fx:id="gridPane" layoutX="0.5" layoutY="0.5" minHeight="700.0" minWidth="1300.0" prefHeight="1000.0" prefWidth="1850.0" styleClass="gridpane">
+        <GridPane fx:id="gridPane" layoutX="5.5" layoutY="6.5" maxHeight="1080.0" maxWidth="1920.0" minHeight="700.0" minWidth="1366.0" prefHeight="950.0" prefWidth="1920.0" styleClass="gridpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columnConstraints>
                 <ColumnConstraints />
-                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="20.0" />
-                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="20.0" />
-                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="20.0" />
-                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="20.0" />
-                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="20.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="500" minWidth="100.0" percentWidth="9.0" prefWidth="150.0" />
+                <ColumnConstraints hgrow="NEVER" maxWidth="500" minWidth="10.0" percentWidth="1.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="500" minWidth="200.0" percentWidth="17.0" />
+                <ColumnConstraints hgrow="NEVER" maxWidth="500" minWidth="10.0" percentWidth="1.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="500" minWidth="200.0" percentWidth="17.0" />
+                <ColumnConstraints hgrow="NEVER" maxWidth="500" minWidth="10.0" percentWidth="1.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="500" minWidth="200.0" percentWidth="17.0" />
+                <ColumnConstraints hgrow="NEVER" maxWidth="500" minWidth="10.0" percentWidth="1.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="500" minWidth="200.0" percentWidth="17.0" />
+                <ColumnConstraints hgrow="NEVER" maxWidth="500" minWidth="10.0" percentWidth="1.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="500" minWidth="200.0" percentWidth="17.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="500" minWidth="10.0" percentWidth="1.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints />
-                <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="ALWAYS" />
-                <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="ALWAYS" />
-                <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="ALWAYS" />
-                <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="ALWAYS" />
-                <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="ALWAYS" />
+                <RowConstraints minHeight="10.0" percentHeight="1.0" prefHeight="30.0" vgrow="ALWAYS" />
+                <RowConstraints maxHeight="250.0" minHeight="150.0" percentHeight="18.0" valignment="CENTER" vgrow="ALWAYS" />
+                <RowConstraints minHeight="10.0" percentHeight="2.0" prefHeight="30.0" vgrow="ALWAYS" />
+                <RowConstraints maxHeight="250.0" minHeight="150.0" percentHeight="18.0" valignment="CENTER" vgrow="ALWAYS" />
+                <RowConstraints minHeight="10.0" percentHeight="2.0" prefHeight="30.0" vgrow="ALWAYS" />
+                <RowConstraints maxHeight="250.0" minHeight="150.0" percentHeight="18.0" valignment="CENTER" vgrow="ALWAYS" />
+                <RowConstraints minHeight="10.0" percentHeight="2.0" prefHeight="30.0" vgrow="ALWAYS" />
+                <RowConstraints maxHeight="250.0" minHeight="150.0" percentHeight="18.0" valignment="CENTER" vgrow="ALWAYS" />
+                <RowConstraints minHeight="10.0" percentHeight="2.0" prefHeight="30.0" vgrow="ALWAYS" />
+                <RowConstraints maxHeight="250.0" minHeight="150.0" percentHeight="18.0" valignment="CENTER" vgrow="ALWAYS" />
+                <RowConstraints minHeight="10.0" percentHeight="1.0" prefHeight="30.0" vgrow="ALWAYS" />
             </rowConstraints>
             <children>
-                <Pane fx:id="pane0" mouseTransparent="false" onMouseClicked="#setPaneNewState0" styleClass="pane" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <AnchorPane fx:id="pane0" mouseTransparent="false" onMouseClicked="#setPaneNewState0" styleClass="pane" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
-                        <Text fx:id="word0_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
-                            <font>
-                                <Font name="Tahoma" size="28.0" />
-                            </font>
-                        </Text>
-                        <Text fx:id="word0_1" boundsType="LOGICAL_VERTICAL_CENTER" layoutX="35.0" layoutY="130.0" strokeWidth="0.0" style="-fx-text-alignment: center;" styleClass="maintext" text="Длиннющее" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="280.0">
-                            <font>
-                                <Font name="Tahoma Bold" size="30.0" />
-                            </font>
-                        </Text>
+                  <GridPane layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="10.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="80.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints percentHeight="5.0" valignment="CENTER" vgrow="ALWAYS" />
+                        <RowConstraints percentHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
+                        <RowConstraints percentHeight="20.0" valignment="CENTER" vgrow="ALWAYS" />
+                        <RowConstraints percentHeight="35.0" valignment="CENTER" vgrow="ALWAYS" />
+                        <RowConstraints percentHeight="10.0" valignment="CENTER" vgrow="ALWAYS" />
+                     </rowConstraints>
+                     <children>
+                        <AnchorPane styleClass="wordbox" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Text fx:id="word0_1" boundsType="LOGICAL_VERTICAL_CENTER" layoutX="30.0" layoutY="125.0" strokeWidth="0.0" styleClass="maintext" text="Длиннющее" textAlignment="CENTER" textOrigin="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                  <font>
+                                      <Font name="Tahoma Bold" size="30.0" />
+                                  </font>
+                              </Text>
+                              <Text fx:id="word0_2" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                  <font>
+                                      <Font name="Tahoma" size="28.0" />
+                                  </font>
+                              </Text>
+                     </children>
+                  </GridPane>
                     </children>
-                </Pane>
-                <Pane fx:id="pane1" onMouseClicked="#setPaneNewState1" styleClass="pane" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                </AnchorPane>
+                <AnchorPane fx:id="pane1" onMouseClicked="#setPaneNewState1" styleClass="pane" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word1_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -61,8 +88,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane2" onMouseClicked="#setPaneNewState2" styleClass="pane" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                </AnchorPane>
+                <AnchorPane fx:id="pane2" onMouseClicked="#setPaneNewState2" styleClass="pane" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word2_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -76,8 +103,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane4" onMouseClicked="#setPaneNewState4" styleClass="pane" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                </AnchorPane>
+                <AnchorPane fx:id="pane4" onMouseClicked="#setPaneNewState4" styleClass="pane" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word3_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -91,8 +118,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane5" onMouseClicked="#setPaneNewState5" styleClass="pane" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                </AnchorPane>
+                <AnchorPane fx:id="pane5" onMouseClicked="#setPaneNewState5" styleClass="pane" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word4_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -106,8 +133,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane6" onMouseClicked="#setPaneNewState6" styleClass="pane" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                </AnchorPane>
+                <AnchorPane fx:id="pane6" onMouseClicked="#setPaneNewState6" styleClass="pane" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word5_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -121,8 +148,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane7" onMouseClicked="#setPaneNewState7" styleClass="pane" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                </AnchorPane>
+                <AnchorPane fx:id="pane7" onMouseClicked="#setPaneNewState7" styleClass="pane" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word6_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -136,8 +163,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane8" onMouseClicked="#setPaneNewState8" styleClass="pane" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                </AnchorPane>
+                <AnchorPane fx:id="pane8" onMouseClicked="#setPaneNewState8" styleClass="pane" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word7_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -151,8 +178,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane10" onMouseClicked="#setPaneNewState10" styleClass="pane" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                </AnchorPane>
+                <AnchorPane fx:id="pane10" onMouseClicked="#setPaneNewState10" styleClass="pane" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word8_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -166,8 +193,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane11" onMouseClicked="#setPaneNewState11" styleClass="pane" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                </AnchorPane>
+                <AnchorPane fx:id="pane11" onMouseClicked="#setPaneNewState11" styleClass="pane" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word9_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -181,8 +208,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane12" onMouseClicked="#setPaneNewState12" styleClass="pane" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                </AnchorPane>
+                <AnchorPane fx:id="pane12" onMouseClicked="#setPaneNewState12" styleClass="pane" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word10_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -196,8 +223,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane13" onMouseClicked="#setPaneNewState13" styleClass="pane" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                </AnchorPane>
+                <AnchorPane fx:id="pane13" onMouseClicked="#setPaneNewState13" styleClass="pane" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word11_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -211,8 +238,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane15" onMouseClicked="#setPaneNewState15" styleClass="pane" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                </AnchorPane>
+                <AnchorPane fx:id="pane15" onMouseClicked="#setPaneNewState15" styleClass="pane" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word12_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -226,8 +253,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane16" onMouseClicked="#setPaneNewState16" styleClass="pane" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                </AnchorPane>
+                <AnchorPane fx:id="pane16" onMouseClicked="#setPaneNewState16" styleClass="pane" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word13_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -241,8 +268,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane17" onMouseClicked="#setPaneNewState17" styleClass="pane" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                </AnchorPane>
+                <AnchorPane fx:id="pane17" onMouseClicked="#setPaneNewState17" styleClass="pane" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word14_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -256,8 +283,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane18" onMouseClicked="#setPaneNewState18" styleClass="pane" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                </AnchorPane>
+                <AnchorPane fx:id="pane18" onMouseClicked="#setPaneNewState18" styleClass="pane" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word15_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -271,8 +298,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane20" onMouseClicked="#setPaneNewState20" styleClass="pane" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                </AnchorPane>
+                <AnchorPane fx:id="pane20" onMouseClicked="#setPaneNewState20" styleClass="pane" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word16_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -286,8 +313,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane21" onMouseClicked="#setPaneNewState21" styleClass="pane" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                </AnchorPane>
+                <AnchorPane fx:id="pane21" onMouseClicked="#setPaneNewState21" styleClass="pane" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word17_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -301,8 +328,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane22" onMouseClicked="#setPaneNewState22" styleClass="pane" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                </AnchorPane>
+                <AnchorPane fx:id="pane22" onMouseClicked="#setPaneNewState22" styleClass="pane" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word18_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -316,8 +343,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane23" onMouseClicked="#setPaneNewState23" styleClass="pane" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                </AnchorPane>
+                <AnchorPane fx:id="pane23" onMouseClicked="#setPaneNewState23" styleClass="pane" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word19_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -331,8 +358,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane3" onMouseClicked="#setPaneNewState3" styleClass="pane" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                </AnchorPane>
+                <AnchorPane fx:id="pane3" onMouseClicked="#setPaneNewState3" styleClass="pane" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word20_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -346,8 +373,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane9" onMouseClicked="#setPaneNewState9" styleClass="pane" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                </AnchorPane>
+                <AnchorPane fx:id="pane9" onMouseClicked="#setPaneNewState9" styleClass="pane" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word21_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -361,8 +388,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane14" onMouseClicked="#setPaneNewState14" styleClass="pane" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                </AnchorPane>
+                <AnchorPane fx:id="pane14" onMouseClicked="#setPaneNewState14" styleClass="pane" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word22_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -376,9 +403,9 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
+                </AnchorPane>
 
-                <Pane fx:id="pane19" onMouseClicked="#setPaneNewState19" styleClass="pane" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                <AnchorPane fx:id="pane19" onMouseClicked="#setPaneNewState19" styleClass="pane" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word23_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -392,8 +419,8 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
-                <Pane fx:id="pane24" onMouseClicked="#setPaneNewState24" styleClass="pane" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                </AnchorPane>
+                <AnchorPane fx:id="pane24" onMouseClicked="#setPaneNewState24" styleClass="pane" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="60.0" layoutX="25.0" layoutY="100.0" stroke="BROWN" strokeType="INSIDE" styleClass="wordbox" width="300.0" />
                         <Text fx:id="word24_2" layoutX="38.0" layoutY="50.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="secondarytext" text="Длиннющее" textAlignment="CENTER" wrappingWidth="280.0">
@@ -407,28 +434,111 @@
                             </font>
                         </Text>
                     </children>
-                </Pane>
+                </AnchorPane>
+                <AnchorPane GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="ALWAYS">
+                    <children>
+                  <GridPane layoutX="-5.0" layoutY="-5.0" prefHeight="171.0" prefWidth="173.0" rotate="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="100.0" percentWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints minHeight="10.0" percentHeight="60.0" valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
+                     </rowConstraints>
+                     <children>
+                                <Button fx:id="newGameButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="100.0" maxWidth="150.0" minHeight="40.0" minWidth="60.0" mnemonicParsing="false" onAction="#startNewGame" prefHeight="100.0" prefWidth="150.0" styleClass="buttonnewgame" text="СНАЧАЛА!" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="Tahoma Bold" size="20.0" />
+                                    </font>
+                                </Button>
+                     </children>
+                  </GridPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <children>
+                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" percentWidth="20.0" prefWidth="30.0" />
+                                <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="50.0" percentWidth="60.0" />
+                                <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" percentWidth="20.0" prefWidth="30.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                        <Pane minHeight="100.0" minWidth="100.0" styleClass="wordbox" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Text fx:id="redNum" fill="RED" rotate="270.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="counter" text="0" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font size="64.0" />
+                                    </font>
+                                </Text>
+                            </children>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                    <children>
+                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" percentWidth="20.0" prefWidth="30.0" />
+                                <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="50.0" percentWidth="60.0" />
+                                <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" percentWidth="20.0" prefWidth="30.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                        <Pane minHeight="100.0" minWidth="100.0" styleClass="wordbox" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Text fx:id="blueNum" fill="BLUE" rotate="270.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="counter" text="0" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="100.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font size="64.0" />
+                                    </font>
+                                </Text>
+                            </children>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                    <children>
+                  <GridPane rotate="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" percentWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints minHeight="50.0" percentHeight="60.0" valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
+                     </rowConstraints>
+                     <children>
+                                <Pane layoutY="0" minHeight="100.0" minWidth="150.0" styleClass="miniblue" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <children>
+                  <GridPane rotate="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" percentWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints minHeight="50.0" percentHeight="60.0" valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
+                     </rowConstraints>
+                     <children>
+                        <Pane minHeight="100.0" minWidth="150.0" styleClass="minired" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                    </children>
+                </AnchorPane>
             </children>
-            <padding>
-                <Insets left="150.0" />
-            </padding>
         </GridPane>
-        <Text fx:id="blueNum" fill="BLUE" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="counter" text="0" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="150.0" y="825.0">
-            <font>
-                <Font size="64.0" />
-            </font>
-        </Text>
-        <Pane layoutX="4.0" layoutY="3.0" prefHeight="100.0" prefWidth="150.0" styleClass="minired" />
-        <Text fx:id="redNum" fill="RED" layoutY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="counter" text="0" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="150.0" y="150.0">
-            <font>
-                <Font size="64.0" />
-            </font>
-        </Text>
-        <Pane layoutX="4.0" layoutY="897.0" prefHeight="100.0" prefWidth="150.0" styleClass="miniblue" />
-        <Button fx:id="newGameButton" alignment="CENTER" contentDisplay="CENTER" layoutY="445.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#startNewGame" prefHeight="110.0" prefWidth="150.0" rotate="270.0" styleClass="buttonnewgame" text="СНАЧАЛА!" textAlignment="CENTER">
-            <font>
-                <Font name="Tahoma Bold" size="22.0" />
-            </font>
-        </Button>
     </children>
-</Pane>
+</AnchorPane>
