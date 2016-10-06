@@ -35,7 +35,7 @@ public class ScreenController {
     private int redNumCount;
     private int blueNumCount;
     private WordGenerator wg = new WordGenerator();
-    private List<String> words;
+    private static List<String> words;
 
     private Stage stage;
 
