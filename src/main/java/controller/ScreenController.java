@@ -208,14 +208,14 @@ public class ScreenController {
 
     public void show() {
         initImagesOnStart();
-        setVocabularyDialog();
+        setVocabularyDialog("Выбор словаря");
         setPanesNewWords(stage.getScene());
         stage.show();
     }
 
-    private void setVocabularyDialog(){
-        Dialog<String> dialog = new ChoiceDialog<>("Оригинальный словарь", "Альтернативный словарь", "Файл словаря (.txt, разделитель слов - пробел)");
-        dialog.setTitle("Выбор словаря");
+    private void setVocabularyDialog(String dialogMessage){
+        Dialog<String> dialog = new ChoiceDialog<>("Оригинальный словарь", "Альтернативный словарь", "Файл (.txt, разделитель слов - пробел, слова - до 15 букв)");
+        dialog.setTitle(dialogMessage);
         dialog.setHeaderText("Какой словарь использовать для игры?\n(отмена для выбора базового словаря)");
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()) {
@@ -229,9 +229,9 @@ public class ScreenController {
                     wg.setVocabularyFromInnerData(WordContainer.ADDITIONAL_VOCABULARY);
                     words = wg.giveMeWordsToPlay();
                     break;
-                case "Файл словаря (.txt, разделитель слов - пробел)":
-                    if (wg.setVocabularyFromFile(setVocabularyFileAdressDialog())) words = wg.giveMeWordsToPlay();
-                    else setVocabularyDialog();
+                case "Файл (.txt, разделитель слов - пробел, слова - до 15 букв)":
+                    if (wg.setVocabularyFromFile(setVocabularyFileAdressDialog("Выберие файл словаря"))) words = wg.giveMeWordsToPlay();
+                    else setVocabularyDialog("Некорректный файл. Выберите другой словарь");
                     break;
             }
         } else {
@@ -240,10 +240,10 @@ public class ScreenController {
         }
     }
 
-    private File setVocabularyFileAdressDialog () {
+    private File setVocabularyFileAdressDialog (String message) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Укажите файл словаря");
-        fileChooser.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+        fileChooser.setTitle(message);
+        fileChooser.getExtensionFilters().add((new FileChooser.ExtensionFilter("Text Files", "*.txt")));
         fileChooser.setInitialDirectory(new File ("/"));
         return fileChooser.showOpenDialog(stage);
     }

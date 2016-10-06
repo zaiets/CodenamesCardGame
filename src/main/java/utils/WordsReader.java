@@ -10,6 +10,7 @@ import java.util.List;
 public final class WordsReader {
 
     public static final String SPLIT_BY = " ";
+    public static final int MAX_WORD_LENGTH = 14;
 
     private WordsReader() {
     }
@@ -28,6 +29,10 @@ public final class WordsReader {
         if (text != null) {
             data = new ArrayList<>();
             data.addAll(Arrays.asList(text.split(SPLIT_BY)));
+            if (data.size() < 25) return null;
+            for (String word : data) {
+                if (word.length() > MAX_WORD_LENGTH) return null;
+            }
         }
         return data;
     }
