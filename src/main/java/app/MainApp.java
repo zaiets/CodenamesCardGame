@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
-    public static final String TITLE = "CodeNames 5x5";
+    public static final String TITLE = "CodeNames field 5x5 (by Zaiets A.Y.) v.1.1.2b";
 
     @Override
     public void start(Stage stage) throws Exception {

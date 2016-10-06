@@ -34,28 +34,16 @@ public class ScreenController {
 
     private int redNumCount;
     private int blueNumCount;
-    private WordGenerator wg = new WordGenerator();
+    private static WordGenerator wg = new WordGenerator();
     private static List<String> words;
 
     private Stage stage;
 
-    private Background basicCardBackground;
-    private List<Background> blueCardBackgrounds = new ArrayList<>();
-    private List<Background> redCardBackgrounds = new ArrayList<>();
-    private List<Background> yellowCardBackgrounds = new ArrayList<>();
+    private static Background basicCardBackground;
+    private static List<Background> blueCardBackgrounds = new ArrayList<>();
+    private static List<Background> redCardBackgrounds = new ArrayList<>();
+    private static List<Background> yellowCardBackgrounds = new ArrayList<>();
 
-    {
-        basicCardBackground = new Background(new BackgroundImage(new Image(getClass().getResource(WORD_CARD_PIC).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BACKGROUND_SIZE_TYPICAL));
-        for (String url : BLUE_TEAM_CARD_PICS) {
-            blueCardBackgrounds.add(new Background(new BackgroundImage(new Image(getClass().getResource(url).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BACKGROUND_SIZE_TYPICAL)));
-        }
-        for (String url : RED_TEAM_CARD_PICS) {
-            redCardBackgrounds.add(new Background(new BackgroundImage(new Image(getClass().getResource(url).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BACKGROUND_SIZE_TYPICAL)));
-        }
-        for (String url : YELLOW_TEAM_CARD_PICS) {
-            yellowCardBackgrounds.add(new Background(new BackgroundImage(new Image(getClass().getResource(url).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BACKGROUND_SIZE_TYPICAL)));
-        }
-    }
 
     //Common elements
     @FXML
@@ -177,6 +165,7 @@ public class ScreenController {
 
     @FXML
     public void startNewGame() {
+        words = wg.giveMeWordsToPlay();
         redNumCount = 0;
         blueNumCount = 0;
         setRedNum(null);
@@ -188,8 +177,7 @@ public class ScreenController {
     private void setPanesNewWords(Scene scene) {
         for (int i = 0; i < 25; i++) {
             Text text1 = (Text) (scene.lookup("#word".concat(String.valueOf(i)).concat("_1")));
-            Pane pane = (Pane) (text1.getParent().getParent());
-            pane.setBackground(basicCardBackground);
+            Pane currentPane = (Pane) (text1.getParent().getParent());
             String word = words.get(i);
             text1.setText(word);
             Text text2 = (Text) (scene.lookup("#word".concat(String.valueOf(i)).concat("_2")));
@@ -197,16 +185,18 @@ public class ScreenController {
             text1.setFont(new Font(text1.getFont().getName(), 30));
             text2.setFont(new Font(text2.getFont().getName(), 28));
             if (word.length() > 10) {
-                text1.setFont(new Font(text1.getFont().getName(), text1.getFont().getSize() * 0.75));
-                text2.setFont(new Font(text2.getFont().getName(), text2.getFont().getSize() * 0.75));
+                text1.setFont(new Font(text1.getFont().getName(), text1.getFont().getSize() * 0.76));
+                text2.setFont(new Font(text2.getFont().getName(), text2.getFont().getSize() * 0.76));
             } else if (word.length() > 8) {
-                text1.setFont(new Font(text1.getFont().getName(), text1.getFont().getSize() * 0.82));
-                text2.setFont(new Font(text2.getFont().getName(), text2.getFont().getSize() * 0.82));
+                text1.setFont(new Font(text1.getFont().getName(), text1.getFont().getSize() * 0.84));
+                text2.setFont(new Font(text2.getFont().getName(), text2.getFont().getSize() * 0.84));
             } else if (word.length() > 5) {
-                text1.setFont(new Font(text1.getFont().getName(), text1.getFont().getSize() * 0.9));
-                text2.setFont(new Font(text2.getFont().getName(), text2.getFont().getSize() * 0.9));
+                text1.setFont(new Font(text1.getFont().getName(), text1.getFont().getSize() * 0.92));
+                text2.setFont(new Font(text2.getFont().getName(), text2.getFont().getSize() * 0.92));
             }
-            pane.getChildren().forEach(o -> o.setVisible(true));
+            currentPane.setBackground(basicCardBackground);
+            currentPane.getChildren().forEach(o -> o.setVisible(true));
+            currentPane.setOnMouseClicked(eventNext -> setState(currentPane));
         }
 
     }
@@ -217,13 +207,14 @@ public class ScreenController {
     }
 
     public void show() {
+        initImagesOnStart();
         setVocabularyDialog();
         setPanesNewWords(stage.getScene());
         stage.show();
     }
 
     private void setVocabularyDialog(){
-        Dialog<String> dialog = new ChoiceDialog<>("Оригинальный словарь", "Альтернативный словарь", "Файл словаря (по типу vocabulary.txt)");
+        Dialog<String> dialog = new ChoiceDialog<>("Оригинальный словарь", "Альтернативный словарь", "Файл словаря (.txt, разделитель слов - пробел)");
         dialog.setTitle("Выбор словаря");
         dialog.setHeaderText("Какой словарь использовать для игры?\n(отмена для выбора базового словаря)");
         Optional<String> result = dialog.showAndWait();
@@ -231,18 +222,21 @@ public class ScreenController {
             String s = result.get();
             switch (s) {
                 case "Оригинальный словарь":
-                    words = wg.listOfWords(WordContainer.DEFAULT_ORIGINAL);
+                    wg.setVocabularyFromInnerData(WordContainer.DEFAULT_ORIGINAL);
+                    words = wg.giveMeWordsToPlay();
                     break;
                 case "Альтернативный словарь":
-                    words = wg.listOfWords(WordContainer.ADDITIONAL_VOCABULARY);
+                    wg.setVocabularyFromInnerData(WordContainer.ADDITIONAL_VOCABULARY);
+                    words = wg.giveMeWordsToPlay();
                     break;
-                case "Файл словаря (по типу vocabulary.txt)":
-                    words = wg.listOfWords(setVocabularyFileAdressDialog());
-                    if (words == null) setVocabularyDialog();
+                case "Файл словаря (.txt, разделитель слов - пробел)":
+                    if (wg.setVocabularyFromFile(setVocabularyFileAdressDialog())) words = wg.giveMeWordsToPlay();
+                    else setVocabularyDialog();
                     break;
             }
         } else {
-            this.words = wg.listOfWords(WordContainer.DEFAULT_ORIGINAL);
+            wg.setVocabularyFromInnerData(WordContainer.DEFAULT_ORIGINAL);
+            words = wg.giveMeWordsToPlay();
         }
     }
 
@@ -253,6 +247,22 @@ public class ScreenController {
         fileChooser.setInitialDirectory(new File ("/"));
         return fileChooser.showOpenDialog(stage);
     }
+
+
+    private void initImagesOnStart(){
+        basicCardBackground = new Background(new BackgroundImage(new Image(getClass().getResource(WORD_CARD_PIC).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BACKGROUND_SIZE_TYPICAL));
+        for (String url : BLUE_TEAM_CARD_PICS) {
+            blueCardBackgrounds.add(new Background(new BackgroundImage(new Image(getClass().getResource(url).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BACKGROUND_SIZE_TYPICAL)));
+        }
+        for (String url : RED_TEAM_CARD_PICS) {
+            redCardBackgrounds.add(new Background(new BackgroundImage(new Image(getClass().getResource(url).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BACKGROUND_SIZE_TYPICAL)));
+        }
+        for (String url : YELLOW_TEAM_CARD_PICS) {
+            yellowCardBackgrounds.add(new Background(new BackgroundImage(new Image(getClass().getResource(url).toExternalForm()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BACKGROUND_SIZE_TYPICAL)));
+        }
+    }
+
+
 
 
     @FXML

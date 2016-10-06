@@ -11,22 +11,24 @@ import java.util.Random;
 
 public class WordGenerator {
     private final static int MAX_COUNT = 25;
+    private static List<String> vocabulary;
 
-    public List<String> listOfWords(WordContainer container) {
-        List<String> words = WordsReader.read(container);
-        return listOfWords(words);
+    public void setVocabularyFromInnerData(WordContainer container) {
+        vocabulary = WordsReader.read(container);
     }
 
-    public List<String> listOfWords(File file) {
-        List<String> words = WordsReader.read(file);
-        if (words != null) {
-            return listOfWords(words);
+    public boolean setVocabularyFromFile(File file) {
+        List<String> vocabulary = WordsReader.read(file);
+        if (vocabulary != null) {
+            WordGenerator.vocabulary = vocabulary;
+            return true;
         } else {
-            return null;
+            return false;
         }
     }
 
-    private List<String> listOfWords(List<String> words) {
+    public List<String> giveMeWordsToPlay() {
+        if (vocabulary == null) return null;
         List<String> gameWords = new ArrayList<>();
         Random randIndex = new Random();
         List<Integer> alreadyInsertedIndexes = new ArrayList<>();
@@ -34,9 +36,9 @@ public class WordGenerator {
         while (i < MAX_COUNT) {
             Integer index;
             do {
-                index = Math.abs(randIndex.nextInt(words.size()));
+                index = Math.abs(randIndex.nextInt(vocabulary.size()));
             } while (alreadyInsertedIndexes.contains(index));
-            gameWords.add(words.get(index));
+            gameWords.add(vocabulary.get(index));
             alreadyInsertedIndexes.add(index);
             i++;
         }
